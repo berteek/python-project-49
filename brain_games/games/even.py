@@ -16,7 +16,7 @@ def get_question() -> str:
     return str(number)
 
 
-def run():
+def run() -> None:
     game_explanation = ('Answer "yes" if the number is even, '
                         'otherwise answer "no".'
                         )

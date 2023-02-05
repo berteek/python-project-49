@@ -44,6 +44,6 @@ def get_correct_answer(progression: str) -> str:
     return str(hidden_number)
 
 
-def run():
+def run() -> None:
     game_explanation = 'What number is missing in the progression?'
     game.run(game_explanation, get_question, get_correct_answer)

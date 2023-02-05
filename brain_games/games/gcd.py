@@ -18,6 +18,6 @@ def get_correct_answer(numbers: str) -> str:
     return str(gcd)
 
 
-def run():
+def run() -> None:
     game_explanation = 'Find the greatest common divisor of given numbers.'
     game.run(game_explanation, get_question, get_correct_answer)

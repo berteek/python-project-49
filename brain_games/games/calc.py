@@ -25,6 +25,6 @@ def get_correct_answer(expression: str) -> str:
             return ''
 
 
-def run():
+def run() -> None:
     game_explanation = 'What is the result of the expression?'
     game.run(game_explanation, get_question, get_correct_answer)
