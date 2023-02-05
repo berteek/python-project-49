@@ -1,4 +1,4 @@
-from random import randint
+from typing import Callable
 import prompt
 
 
@@ -7,31 +7,41 @@ def get_player_name() -> str:
     print(f'Hello, {name}!')
     return name
 
-def is_even(number: int) -> str:
-    return 'yes' if number % 2 == 0 else 'no'
-
-def ask_player_questions() -> bool:
+def ask_player_questions(
+        game_explanation: str,
+        get_question: Callable[[], str],
+        get_correct_answer: Callable[[str], str]
+        ) -> bool:
     """Returns True if player answered correctly, otherwise returns False."""
     
-    print('Answer "yes" if the number is even, otherwise answer "no".')
+    print(game_explanation)
     for _ in range(3):
-        number = randint(0, 30)
-        correct_answer = is_even(number)
-        
-        print(f'Question: {number}')
+        question = get_question()
+        correct_answer = get_correct_answer(question)
+        print(f'Question: {question}')
         player_answer = str(prompt.string('Your answer: '))
         
         if player_answer != correct_answer:
+            print(f'\'{player_answer}\' is wrong answer ;(.' +
+                  f'Correct answer was \'{correct_answer}\'')
             return False
         print('Correct!')
     return True
 
-def run() -> None:
+def run(
+        game_explanation: str,
+        get_question: Callable[[], str],
+        get_correct_answer: Callable[[str], str]
+        ) -> None:
     print('Welcome to the Brain Games!' )
 
     name = get_player_name()
     
-    did_player_answer_correctly = ask_player_questions()
+    did_player_answer_correctly = ask_player_questions(
+            game_explanation, 
+            get_question, 
+            get_correct_answer)
+
     if did_player_answer_correctly:
         print(f'Congratulations, {name}!')
     else:
