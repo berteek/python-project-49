@@ -22,5 +22,8 @@ brain-calc:
 brain-gcd:
 	poetry run brain-gcd
 
+brain-progression:
+	poetry run brain-progression
+
 lint:
 	poetry run flake8 brain_games
