@@ -1,5 +1,5 @@
 import brain_games.game as game
-from random import randint, getrandbits, choice
+from random import getrandbits, choice
 
 
 def is_prime(number: int) -> bool:
@@ -23,12 +23,15 @@ def get_random_not_prime(start: int, finish: int) -> int:
     numbers = [i for i in range(start, finish) if not is_prime(i)]
     number = choice(numbers)
     return number
-    
+
+
 def get_question() -> str:
     is_answer_prime = getrandbits(1)
     start = 0
     finish = 30
-    number = get_random_prime(start, finish) if is_answer_prime else get_random_not_prime(start, finish)
+    number = (get_random_prime(start, finish)
+              if is_answer_prime
+              else get_random_not_prime(start, finish))
     return str(number)
 
 
@@ -37,5 +40,6 @@ def get_correct_answer(number: str) -> str:
 
 
 def run() -> None:
-    game_explanation = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+    game_explanation = ('Answer "yes" if given number is prime. '
+                        'Otherwise answer "no".')
     game.run(game_explanation, get_question, get_correct_answer)

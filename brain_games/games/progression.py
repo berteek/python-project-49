@@ -6,7 +6,9 @@ def get_question() -> str:
     start = randint(0, 30)
     difference = randint(1, 10)
     length = 10
-    progression = list(range(start, start + length * difference + 1, difference))
+    progression = list(range(start,
+                             start + length * difference + 1,
+                             difference))
     hidden_number = choice(progression)
     question = ''
     for number in progression:
@@ -15,6 +17,7 @@ def get_question() -> str:
         else:
             question += f'{number} '
     return question
+
 
 def calculate_difference(progression: list[str]) -> int:
     int_streak = 0
@@ -33,7 +36,9 @@ def calculate_hidden_number(progression: list[str], difference: int) -> int:
     i = 0
     while progression[i] != '..':
         i += 1
-    hidden_number = int(progression[i - 1]) + difference if i != 0 else int(progression[i + 1]) - difference
+    hidden_number = (int(progression[i - 1]) + difference
+                     if i != 0
+                     else int(progression[i + 1]) - difference)
     return hidden_number
 
 
