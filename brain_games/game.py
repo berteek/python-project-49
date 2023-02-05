@@ -12,7 +12,7 @@ def ask_player_questions(
         game_explanation: str,
         get_question: Callable[[], str],
         get_correct_answer: Callable[[str], str]
-        ) -> bool:
+) -> bool:
     """Returns True if player answered correctly, otherwise returns False."""
 
     print(game_explanation)
@@ -34,7 +34,7 @@ def run(
         game_explanation: str,
         get_question: Callable[[], str],
         get_correct_answer: Callable[[str], str]
-        ) -> None:
+) -> None:
     print('Welcome to the Brain Games! ')
 
     name = get_player_name()
