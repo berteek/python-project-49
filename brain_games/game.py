@@ -23,7 +23,7 @@ def ask_player_questions(
         player_answer = str(prompt.string('Your answer: '))
 
         if player_answer != correct_answer:
-            print(f'\'{player_answer}\' is wrong answer ;(.'
+            print(f'\'{player_answer}\' is wrong answer ;(. '
                   f'Correct answer was \'{correct_answer}\'')
             return False
         print('Correct!')
