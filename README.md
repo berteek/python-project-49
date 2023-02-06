@@ -7,9 +7,9 @@
 A collection of small brain-games using CLI.
 
 ## Requirements
-python 3.11+
-poetry
-pip
+- python 3.11+
+- poetry
+- pip
 
 ## Installation
 Clone this repository and run
