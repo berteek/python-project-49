@@ -8,9 +8,19 @@ A collection of small brain-games using CLI.
 
 ## Requirements
 python 3.11+
+poetry
+pip
 
 ## Installation
 Clone this repository and run
+```
+make package-install
+```
+Then build it with poetry by running
+```
+make build
+```
+Install built package into the system
 ```
 make package-install
 ```
